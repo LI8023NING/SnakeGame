@@ -3,7 +3,5 @@
 int main()
 {
 	GameStart();
-	system("cls");
-	CreateMap();
 
 }

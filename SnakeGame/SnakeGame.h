@@ -26,9 +26,11 @@ struct snakenode
 	snakenode *next;
 };
 
-
 //º¯ÊýÉêÃ÷
-void GameStart();
 void Position(int x, int y);
 void CreateMap();
 void Schedule(int x);
+void InitSnakeBody();
+void GameStart();
+void GameControl();
+void GameOver();
