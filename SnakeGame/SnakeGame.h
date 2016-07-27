@@ -13,10 +13,11 @@
 using namespace std;
 
 //蛇上下左右动
-#define W UP      
-#define S DOWN
-#define L LEFT
-#define R RIGHT
+#define UP 1
+#define DOWN 2
+#define LEFT 3
+#define RIGHT 4
+
 
 //蛇身的节点
 struct snakenode
@@ -37,3 +38,12 @@ void GameOver();
 bool EatSelf();
 bool HitTheWall();
 void CreateFood();
+
+void SnakeMove();
+void Pause();
+void GameRecycle();
+void ClearCorpse();
+void SureRes();
+void GameGuide();
+void SameAction(snakenode* nexthead, snakenode* lastfood);
+void Mark();
