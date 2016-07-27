@@ -34,3 +34,6 @@ void InitSnakeBody();
 void GameStart();
 void GameControl();
 void GameOver();
+bool EatSelf();
+bool HitTheWall();
+void CreateFood();

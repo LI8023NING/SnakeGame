@@ -42,7 +42,11 @@ void GameControl()
 //”Œœ∑Ω· ¯
 void GameOver()
 {
-
+	if (EatSelf || HitTheWall)
+	{
+		Position(100,8);
+		printf("Sorry,The game is voer\n");
+	}
 }
 
 

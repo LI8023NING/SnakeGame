@@ -51,6 +51,7 @@ void Schedule(int x)
 	}
 }
 
+//遇到问题：蛇身初始化只能竖着打印 不可横着 原因是，横直打印的结束符一直覆盖前边一直打印的
 //初始化蛇自身
 void InitSnakeBody()
 {
@@ -58,12 +59,12 @@ void InitSnakeBody()
 	snaketail->x = 20;
 	snaketail->y = 4;
 	snaketail->next = NULL;
-	for (int i = 0; i <= 4; ++i)
+	for (int i = 1; i <= 4; ++i)
 	{
 		snakehead = (snakenode*)malloc(sizeof(snakenode));
 		snakehead->next = snaketail;   //节点头插
-		snakehead->x = 20 ;
-		snakehead->y = 4 + i;
+		snakehead->x = 20 +2*i;
+		snakehead->y = 4;
 
 		snaketail = snakehead;         //尾巴指向头
 	}
@@ -75,4 +76,49 @@ void InitSnakeBody()
 		snaketail = snaketail->next;
 	}
 }
+
+
+//蛇咬到自己
+bool EatSelf()
+{
+	snakenode* self = snakehead->next;
+	while(self != NULL)
+	{
+		if (self->x == snakehead->x && self->y == snakehead->y)
+			return true;     //表示咬到自己
+		self = self->next;
+	}
+	return false;            //没有咬到自己
+}
+
+//碰到墙壁了
+bool HitTheWall()
+{
+	if (snakehead->y == 0 || snakehead->y == 36 || snakehead->x == 0 || snakehead->x == 78)
+		return true;
+	else
+		return false;
+}
+
+//随机出现食物
+void CreateFood()
+{
+	srand((unsigned)time(NULL)); //随机数发生器的初始化
+	snakenode* food = (snakenode*)malloc(sizeof(snakenode));
+
+}
+
+//蛇会移动
+void SnakeMove()
+{
+
+}
+
+
+//游戏暂停
+{
+
+}
+
+
 
